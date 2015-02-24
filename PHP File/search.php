@@ -38,7 +38,8 @@ echo '<div class="title">
 	<div class="element-input">
     <label class="title">
     </label><div class="item-cont">';
-	//!card name replacement//
+
+//!card name replacement//
 if (empty($_POST["Card"])) {
 //! Enter Card Name
 echo '<input class="large" type="text" name="Card" required="required" value="" placeholder="Card Name"/>';
@@ -51,14 +52,14 @@ echo '<span class="icon-place">
     <label class="title">
     </label><div class="item-cont">';;
 } else {
-//! Otherwise
 echo '<input class="large" type="text" name="Card" required="required" value="';
 echo $card;
 echo '" placeholder="Card Name"/>';
 echo '<span class="icon-place"></span></div></div><div class="element-input"><label class="title"></label><div class="item-cont">';
 
-$cardfile = "https://api.deckbrew.com/mtg/cards/$apiget";
+//! Pulling sets the searched card was printed in. 
 
+$cardfile = "https://api.deckbrew.com/mtg/cards/$apiget";
 $ch = curl_init();
 curl_setopt ($ch, CURLOPT_URL, $cardfile);
 curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -66,9 +67,8 @@ $cardinfo= curl_exec($ch);
 curl_close($ch);
 
 $setinfo = json_decode($cardinfo, true);
-//!echo $cardfile;
 echo '<select name="Set">';
-
+//! Make an entry in the list for each set listed.
 foreach($setinfo['editions'] as $key => $val){
 
 echo "<option value='";
@@ -86,7 +86,7 @@ echo '<span class="icon-place">
 	<div class="submit"><input type="submit" value="Submit"/>';
 }
 
-	//!Image Fetch//
+//! Image Fetch.
 if (empty($set)) {
     $img = "http://www.mtgimage.com/card/$card.jpg";
 } else {
@@ -133,7 +133,8 @@ if (empty($_POST["Card"])) {
 echo '</div>';
 echo "<center>&#169 Copyright Underground Games 2015</center>";
 echo '</form>';
-
+echo "</body>";
+echo "</html>";
 
 ?>
 
