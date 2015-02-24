@@ -1,0 +1,17 @@
+Restructure the lookup process:
+-Empty page with 'Enter Card Name' and a single button 'Go!'.
+	-Auto complete card name and format card name for APIs.
+-Once posted, propagate set names for card in mention. Default 'Select Set'. Single Button 'Search!'
+	-If default 'Select Set' is selected (Popup 'Please select the correct set.') reload page.
+	-Format set names for image and price API (Need set list for TCGPlayer.) and pull data.
+-Parse XML data and place relevant data in table under card image.
+	-High, Med, Low and Foil prices (Foil not working on TCGTEST API key.)
+	
+Test using different cards. Split, promo and containing punctuation. 
+
+Clean and modernize UI:
+-Consistent color scheme.
+-Responsive layout (Mobile ready.)
+-Fast image resizing (Hosted image database W/lower quality & sized images.)
+
+Form a card price database (Testing for deck building site. Future stuff.)
